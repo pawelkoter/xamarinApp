@@ -20,7 +20,6 @@ namespace PamoApp.Services
             {
                 DefaultRequestHeaders = { Accept = { MediaTypeWithQualityHeaderValue.Parse("applicaiton/json") }}
             };
-//            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("applicaiton/json"));
 
             var url = $"{ApiUrl}?appid={ApiKey}&units={Units}&id={cityId}";
 
@@ -32,7 +31,11 @@ namespace PamoApp.Services
 
                 return new WeatherData
                 {
-                    City = dto.Name
+                    City = dto.Name,
+                    Temperature = dto.Main.Temp,
+                    Pressure = dto.Main.Pressure,
+                    Cloudiness = dto.Clouds.All,
+                    WindSpeed = dto.Wind.Speed,
                 };
             }
 

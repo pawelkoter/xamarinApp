@@ -4,35 +4,36 @@
              x:Class="PamoApp.Views.WeatherPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker Title="Color"
-                    VerticalOptions="CenterAndExpand"
-                    Margin="10, 0"
-                    >
-                <Picker.Items>
-                    <x:String>Aqua</x:String>
-                    <x:String>Black</x:String>
-                    <x:String>Blue</x:String>
-                    <x:String>Fuchsia</x:String>
-                    <x:String>Gray</x:String>
-                    <x:String>Green</x:String>
-                    <x:String>Lime</x:String>
-                    <x:String>Maroon</x:String>
-                    <x:String>Navy</x:String>
-                    <x:String>Olive</x:String>
-                    <x:String>Purple</x:String>
-                    <x:String>Red</x:String>
-                    <x:String>Silver</x:String>
-                    <x:String>Teal</x:String>
-                    <x:String>White</x:String>
-                    <x:String>Yellow</x:String>
-                </Picker.Items>
+            <Picker ItemsSource="{Binding Cities}" ItemDisplayBinding="{Binding Name}" SelectedIndex="{Binding CitiesSelectedIndex}">
+
             </Picker>
             <Button Text="Sprawdź pogodę" Command="{Binding GetWeatherDataCommand}"  HorizontalOptions="Center" />
-            <Label x:Name="CityLabel"
-               Text="{Binding}"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Miasto:" FontSize="Medium" />
+                    <Label Text="{Binding WeatherData.City}" FontSize="Medium" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Temperatura:" FontSize="Medium" />
+                    <Label Text="{Binding WeatherData.Temperature}" FontSize="Medium" />
+                    <Label Text="℃" FontSize="Medium" VerticalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Ciśnienie:" FontSize="Medium" />
+                    <Label Text="{Binding WeatherData.Pressure}" FontSize="Medium" />
+                    <Label Text="hPa" FontSize="Medium" VerticalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Zachmurzenie:" FontSize="Medium" />
+                    <Label Text="{Binding WeatherData.Cloudiness}" FontSize="Medium" />
+                    <Label Text=" %" FontSize="Medium" VerticalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Prędkość wiatru:" FontSize="Medium" />
+                    <Label Text="{Binding WeatherData.WindSpeed}" FontSize="Medium" />
+                    <Label Text=" m/s" FontSize="Medium" />
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
