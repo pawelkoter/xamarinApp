@@ -36,7 +36,7 @@ namespace PamoApp.ViewModels
             };
         }
 
-        private readonly IWeatherService _weatherService = new WeatherService();
+        private readonly IWeatherService _weatherService = new WeatherServiceWithCaching();
 
         private async void GetWeatherData()
         {
