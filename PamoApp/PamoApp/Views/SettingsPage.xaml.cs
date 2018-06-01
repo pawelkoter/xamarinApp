@@ -1,26 +1,22 @@
 ﻿using PamoApp.Services;
+using PamoApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace PamoApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AboutPage : ContentPage
+	public partial class SettingsPage : ContentPage
 	{
-
-        public AboutPage ()
+        public SettingsPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 
-            if (Application.Current.Properties.ContainsKey(Constants.UseDarkThemeProperty))
-            {
-                ThemeSwitch.IsToggled = (bool) Application.Current.Properties[Constants.UseDarkThemeProperty];
-            }
-        }
+		    BindingContext = new SettingsViewModel();
+		}
 
 	    public async void OnThemeSwitchToggled(object sender, ToggledEventArgs toggledEventArgs)
 	    {
-
             var themeSwith = (Switch)sender;
 
 	        var useDarkTheme = themeSwith.IsToggled;

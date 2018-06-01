@@ -10,8 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\AboutPage.xaml.cs">
+    <Compile Update="Views\SettingsPage.xaml.cs">
       <SubType>Code</SubType>
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\MainPage.xaml.cs">
       <SubType>Code</SubType>

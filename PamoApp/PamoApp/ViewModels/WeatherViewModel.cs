@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using PamoApp.Models;
 using PamoApp.Services;
@@ -8,18 +6,22 @@ using Xamarin.Forms;
 
 namespace PamoApp.ViewModels
 {
-    public class WeatherViewModel : INotifyPropertyChanged
+    public class WeatherViewModel : BaseViewModel
     { 
         public WeatherData WeatherData { get; private set; }
 
         public IList<City> Cities { get; set; }
+
         public int CitiesSelectedIndex { get; set; }
 
         public ICommand GetWeatherDataCommand { get; private set; }
 
         public WeatherViewModel()
         {
+            Title = "Pogoda";
+
             WeatherData = new WeatherData();
+
             GetWeatherDataCommand = new Command(GetWeatherData);
 
             Cities = new List<City>
@@ -34,8 +36,6 @@ namespace PamoApp.ViewModels
             };
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private readonly IWeatherService _weatherService = new WeatherService();
 
         private async void GetWeatherData()
@@ -45,15 +45,7 @@ namespace PamoApp.ViewModels
 
             WeatherData = data;
 
-            OnPropertyChanged("WeatherData");
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            OnPropertyChanged(nameof(WeatherData));
         }
     }
 }

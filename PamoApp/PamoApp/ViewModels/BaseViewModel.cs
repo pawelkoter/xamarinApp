@@ -8,6 +8,7 @@ namespace PamoApp.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         bool isBusy = false;
+
         public bool IsBusy
         {
             get { return isBusy; }
@@ -35,13 +36,12 @@ namespace PamoApp.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
-            if (changed == null)
-                return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            changed?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

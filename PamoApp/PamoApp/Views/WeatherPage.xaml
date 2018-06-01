@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PamoApp.Views.WeatherPage">
+             x:Class="PamoApp.Views.WeatherPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout>
-            <Picker ItemsSource="{Binding Cities}" ItemDisplayBinding="{Binding Name}" SelectedIndex="{Binding CitiesSelectedIndex}">
-
-            </Picker>
+            <Picker ItemsSource="{Binding Cities}" ItemDisplayBinding="{Binding Name}" SelectedIndex="{Binding CitiesSelectedIndex}" />
             <Button Text="Sprawdź pogodę" Command="{Binding GetWeatherDataCommand}"  HorizontalOptions="Center" />
             <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                 <StackLayout Orientation="Horizontal">
