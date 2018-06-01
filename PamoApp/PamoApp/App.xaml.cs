@@ -1,5 +1,4 @@
-﻿using System;
-using PamoApp.Services;
+﻿using PamoApp.Services;
 using PamoApp.Views;
 using Xamarin.Forms;
 

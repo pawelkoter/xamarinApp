@@ -18,6 +18,8 @@
             <Switch x:Name="ThemeSwitch"
                     IsToggled="{Binding UseDarkTheme}"
                     Toggled="OnThemeSwitchToggled" />
+            <Picker ItemsSource="{Binding Colors}" SelectedIndex="{Binding ColorSelectedIndex}" ItemDisplayBinding="{Binding Name}"></Picker>
+            <Button Text="Zapisz kolor" Command="{Binding SaveColorCommand}"  HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
